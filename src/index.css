@@ -11,17 +11,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-.container{
+.search-container{
   margin: 0px auto;
   text-align: center;
   width: 60%;
-  margin-top: 5%;
+  margin-top: 3%;
   margin-left: 20%;
   margin-right: 20%;
   padding-bottom: 50px;
-  border: 1px solid black;
+  /* border: 1px solid black; */
 }
-.container h2{
+.search-container h2{
   font-size: larger;
   font-weight: 100;
   font-family: cursive;
@@ -31,15 +31,40 @@ code {
   padding-left: 20%;
   padding-right: 20%;
 }
+.body-container{
+  display: flex;
+  flex:auto;
+  flex-direction: row;
+  /* border: 1px solid yellowgreen; */
+}
+.SearchResults-container{
+  
+  margin-top: 2%;
+  /* border: 1px solid blueviolet; */
+  width: 97%;
+}
+.SearchResults-container-container{
+  margin-left: 1%;
+  margin-top: 2%;
+  /* border: 1px solid yellow; */
+  width: 70%;
+}
+.MovieDetail-container{
+  margin-top: 3%;
+  width: 33%;
+  /* border: 1px solid red; */
+  padding: 10px 10px 10px 10px;
+}
 .Movie-card-image{
   height: 200px;
   width:200px;
 }
 .Movie-card{
-  max-width: 345px;
+  max-width: 0-345px;
   height:300px;
   color: black;
   border: 1px solid black;
+  transform: scaleZ(1.03);
   cursor: pointer;
 }
 .Movie-card:hover{
@@ -55,4 +80,9 @@ code {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content:space-evenly;
+}
+.Not-found-h4{
+  color:red;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: xx-large;
 }

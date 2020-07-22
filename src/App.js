@@ -25,12 +25,13 @@ function App() {
     if(e.key ==="Enter"){
       axios(apiUrl+"&s="+state.s).then(({data})=>{
         let results = data.Search;
-        //console.log(results);
+        console.log(results);
         setState(prevState=>{
           return {...prevState,results:results}
-        });
+        })
         
       })
+      
     }
   }
   const openDetail = id=>{
@@ -42,8 +43,9 @@ function App() {
         return {...prevState,selected:detail}
       });
       //console.log(state.selected);
-    });
+    })
   }
+
   const closeDetail = ()=>{
     setState(prevState=>{
       return {...prevState,selected:{}}
@@ -54,13 +56,17 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <div className="container">
+        <div className="search-container">
             <h2>Movie Search</h2>
             <Search handleInput={handleInput} searchEvent={searchEvent}></Search>
-            <SearchResults results={state.results} openDetail={openDetail}></SearchResults>
-            {
-              (typeof (state.selected.Title)!="undefined")?<MovieDetail item={state.selected} closeDetail={closeDetail}/>:false
-            }
+        </div>
+        <div className="body-container">
+          <div className="SearchResults-container-container">
+              <SearchResults results={state.results} openDetail={openDetail}></SearchResults>
+          </div>
+            <div className="MovieDetail-container">
+              {(typeof (state.selected.Title)!="undefined")?<MovieDetail item={state.selected} closeDetail={closeDetail}/>:false}
+            </div>
         </div>
         
         
