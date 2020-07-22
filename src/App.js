@@ -1,23 +1,69 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React,{ useState }  from 'react';
+import Search from './components/Search';
+import SearchResults from './components/SearchResults';
+import MovieDetail from './components/MovieDetail';
+import axios from 'axios';
 
 function App() {
+  const [state,setState] = useState({
+    s:"",
+    results:[],
+    selected:{}
+  });
+
+  const apiUrl = "http://www.omdbapi.com/?apikey=921b06eb";
+  const handleInput = (e)=>{
+    let s = e.target.value;
+    setState(prevState=>{
+      return {...prevState,s:s}
+    });
+    
+    console.log(state.s);
+
+  }
+  const searchEvent = (e)=>{
+    if(e.key ==="Enter"){
+      axios(apiUrl+"&s="+state.s).then(({data})=>{
+        let results = data.Search;
+        //console.log(results);
+        setState(prevState=>{
+          return {...prevState,results:results}
+        });
+        
+      })
+    }
+  }
+  const openDetail = id=>{
+    axios(apiUrl+"&i="+id).then(({data})=>{
+      let detail = data;
+      console.log(detail);
+
+      setState(prevState=>{
+        return {...prevState,selected:detail}
+      });
+      //console.log(state.selected);
+    });
+  }
+  const closeDetail = ()=>{
+    setState(prevState=>{
+      return {...prevState,selected:{}}
+    });
+    
+  }
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <div className="container">
+            <h2>Movie Search</h2>
+            <Search handleInput={handleInput} searchEvent={searchEvent}></Search>
+            <SearchResults results={state.results} openDetail={openDetail}></SearchResults>
+            {
+              (typeof (state.selected.Title)!="undefined")?<MovieDetail item={state.selected} closeDetail={closeDetail}/>:false
+            }
+        </div>
+        
+        
       </header>
     </div>
   );

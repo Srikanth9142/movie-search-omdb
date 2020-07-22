@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: -apple-system, BlinkMacSystemFont, 'Roboto','Segoe UI', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -10,4 +10,49 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+.container{
+  margin: 0px auto;
+  text-align: center;
+  width: 60%;
+  margin-top: 5%;
+  margin-left: 20%;
+  margin-right: 20%;
+  padding-bottom: 50px;
+  border: 1px solid black;
+}
+.container h2{
+  font-size: larger;
+  font-weight: 100;
+  font-family: cursive;
+}
+.searchBar{
+  width:60%;
+  padding-left: 20%;
+  padding-right: 20%;
+}
+.Movie-card-image{
+  height: 200px;
+  width:200px;
+}
+.Movie-card{
+  max-width: 345px;
+  height:300px;
+  color: black;
+  border: 1px solid black;
+  cursor: pointer;
+}
+.Movie-card:hover{
+  transition: 0.5s;
+  transform: scale(1.03);
+  
+}
+.SearchResults-container{
+  margin-top: 10%;
+  padding: 10px 10px 10px 10px;
+  display: flex;
+  flex: auto;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content:space-evenly;
 }
