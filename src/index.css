@@ -74,7 +74,6 @@ code {
 }
 .SearchResults-container{
   margin-top: 10%;
-  padding: 10px 10px 10px 10px;
   display: flex;
   flex: auto;
   flex-direction: row;
@@ -84,5 +83,6 @@ code {
 .Not-found-h4{
   color:red;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  padding: 10px 10px 10px 10px;
   font-size: xx-large;
 }

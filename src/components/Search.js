@@ -14,7 +14,7 @@ function Search(props) {
             onChange={props.handleInput}
             onKeyPress={props.searchEvent}/>
 
-            <Button variant="contained" color="primary" startIcon={<SearchIcon/>}> Search</Button>
+            <Button variant="contained" color="primary" startIcon={<SearchIcon/>} onClick={()=>props.searchButtonClick()}> Search</Button>
         </div>
     )
 }

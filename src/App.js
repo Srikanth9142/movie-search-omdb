@@ -34,6 +34,17 @@ function App() {
       
     }
   }
+  const searchButtonClick = ()=>{
+      axios(apiUrl+"&s="+state.s).then(({data})=>{
+        let results = data.Search;
+        console.log(results);
+        setState(prevState=>{
+          return {...prevState,results:results}
+        })
+        
+      })
+      
+  }
   const openDetail = id=>{
     axios(apiUrl+"&i="+id).then(({data})=>{
       let detail = data;
@@ -58,7 +69,7 @@ function App() {
       <header className="App-header">
         <div className="search-container">
             <h2>Movie Search</h2>
-            <Search handleInput={handleInput} searchEvent={searchEvent}></Search>
+            <Search handleInput={handleInput} searchEvent={searchEvent} searchButtonClick={searchButtonClick}></Search>
         </div>
         <div className="body-container">
           <div className="SearchResults-container-container">
