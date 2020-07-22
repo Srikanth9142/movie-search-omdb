@@ -11,7 +11,7 @@ function App() {
     selected:{}
   });
 
-  const apiUrl = "http://www.omdbapi.com/?apikey=921b06eb";
+  const apiUrl = "https://www.omdbapi.com/?apikey=921b06eb";
   const handleInput = (e)=>{
     let s = e.target.value;
     setState(prevState=>{
